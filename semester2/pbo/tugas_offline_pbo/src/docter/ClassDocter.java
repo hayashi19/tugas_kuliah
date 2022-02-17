@@ -1,3 +1,5 @@
+package docter;
+
 import javax.swing.JOptionPane;
 
 public class ClassDocter {
