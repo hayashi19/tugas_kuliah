@@ -1,0 +1,35 @@
+// import semua library yang dibutuhkan
+#include <iostream>
+#include <stack>
+#include <string>
+// untuk cout dan cin
+using namespace std;
+
+struct rpgUser {
+
+    string username;
+    int level;
+    string role;
+
+};
+
+int main() {
+
+    rpgUser data[6] = {
+        {"gamingx123", 50, "Swordman"},
+        {"FFChat777", 80, "Archer"},
+        {"HUNTERXXX", 102, "Spear"},
+        {"lolwwwwww", 80, "Mage"},
+        {"user1231240", 45, "Archer"},
+        {"user0001234", 20, "Swordman"}
+    };
+
+    cout << "Usrename" << "\t" << "Level" << "\t" << "Role" << endl;
+
+    for(int i = 0; i < 6; i++) {
+        cout << data[i].username << "\t" << data[i].level << "\t" << data[i].role << endl;
+    }
+
+    return 0;
+
+}
