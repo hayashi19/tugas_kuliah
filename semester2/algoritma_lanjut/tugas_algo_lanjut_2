@@ -1,0 +1,161 @@
+#include <iostream>
+using namespace std;
+
+// Procedurenya unutk sortiran ======
+void BubbleSort(int A[], int n) {
+
+    // Looping unutk print array yang asli sebelum di sort
+    cout << "Array asli: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+    cout << endl;
+
+    // Algoritma untuk sortir
+    for (int pass = n - 1; pass >= 0; pass--){
+        for (int i = 0; i <= pass - 1; i++){
+            if (A[i] > A[i + 1]){
+                int temp = A[i];
+                A[i] = A[i + 1];
+                A[i + 1] = temp;
+            }
+        }
+    }
+    
+    // Print hasil sortir
+    cout << "Bubble Sort: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+
+}
+
+void BubbleSortImproved(int A[], int n) {
+
+    // Looping unutk print array yang asli sebelum di sort
+    cout << "Array asli: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+    cout << endl;
+
+    // Algoritma untuk sortir
+    int pass, i, temp, swapped = 1;
+    for (pass = n - 1; pass >= 0 && swapped; pass--){
+        swapped = 0;
+        for (i = 0; i <= pass - 1; i++) {
+                if (A[i] > A[i + 1]){
+                    temp = A[i];
+                    A[i] = A[i + 1];
+                    A[i + 1] = temp;
+                    swapped = 1;
+                }
+        }
+    }
+
+    // Print hasil sortir
+    cout << "Bubble Sort Inprove: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+
+}
+
+void SelectionSort(int A[], int n) {
+
+    // Looping unutk print array yang asli sebelum di sort
+    cout << "Array asli: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+    cout << endl;
+
+    // Algoritma untuk sortir
+    int i, j, min, temp;
+    for (i = 0; i < n; i++){
+        min = i;
+        for (j = i + 1; j < n; j++){
+                if (A[j] < A[min]){
+                    min = j;
+                }  
+        }
+        temp = A[min];
+        A[min] = A[i];
+        A[i] = temp;
+    }
+
+    // Print hasil sortir
+    cout << "Selection Sort: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+
+}
+
+void InsetionSort(int A[], int n) {
+
+    // Looping unutk print array yang asli sebelum di sort
+    cout << "Array asli: ";
+    for (int i = 0; i < n; i++){
+        cout << A[i] << " ";
+    };  
+    cout << endl;
+    
+    // Algoritma untuk sortir
+    int i, j, v;
+    for (i = 1; i <= n; i++){
+        v = A[i];
+        j = i;
+        while (A[j - 1] > v && j >= 1){
+                A[j] = A[j - 1];
+                j--;
+        }
+        A[j] = v;
+    }
+
+    // Print hasil sortir
+    cout << "Insertion Sort: ";
+    for (int i = 0; i < n; i++){  
+        cout << A[i] << " ";
+    };  
+      
+}
+// ===============
+
+// MAIN PROGRAM
+int main() {
+
+    // Array int
+    int array[10] = { 5,  1,  8,  6, 10,  7,  2,  9,  3,  4};
+    int arrayLenght = sizeof(array)/sizeof(*array); 
+
+    // Variabel untu pilihan
+    int pilihan;
+    // Memilih tipe sortir oleh user
+    cout << endl << "1. BubbleSort" << endl << "2. BubbleSortImproved" << endl <<  "3. SelectionSort" << endl << "4. InsetionSort" << endl << endl;
+    cout << "Pilih tipe sortiran (1 - 4): ";
+    cin >> pilihan;
+    cout << endl;
+
+    // Case untuk setiap pilihan dari user 
+    switch (pilihan){
+    case 1:
+        BubbleSort(array, arrayLenght);   
+        break;
+    case 2:
+        BubbleSortImproved(array, arrayLenght);   
+        break;
+    case 3:
+        SelectionSort(array, arrayLenght);   
+        break;
+    case 4:
+        InsetionSort(array, arrayLenght);   
+        break;
+    default:
+        cout << "Pilih tipe sortiran.";
+        break;
+    }
+
+    return 0;
+
+}
