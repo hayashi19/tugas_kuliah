@@ -103,12 +103,12 @@ void InsetionSort(int A[], int n) {
     
     // Algoritma untuk sortir
     int i, j, v;
-    for (i = 1; i <= n; i++){
+    for(i = 1; i <= n - 1; i++){
         v = A[i];
         j = i;
         while (A[j - 1] > v && j >= 1){
-                A[j] = A[j - 1];
-                j--;
+            A[j] = A[j - 1];
+            j--;
         }
         A[j] = v;
     }
@@ -124,37 +124,64 @@ void InsetionSort(int A[], int n) {
 
 // MAIN PROGRAM
 int main() {
+    
+    // Mencegah program untuk membuat angka yang sama 
+    srand ( time(NULL) );
 
-    // Array int
-    int array[10] = { 5,  1,  8,  6, 10,  7,  2,  9,  3,  4};
-    int arrayLenght = sizeof(array)/sizeof(*array); 
+    // Penjelasan tentang program
+    cout << endl << ">>PROGRAM PENYORTIRAN ARRAY<<\n\
+|| Program akan membuat nomor secara acak yang jumlahnya di tentukan oleh user. \n\
+|| Lalu nomor itu akan dimasukan kedalam sebuah array.\n\
+|| Yang dimana array itu akan disortir berdasarkan tipe sortiran yang telah dipilih oleh user juga." << endl << endl;
 
-    // Variabel untu pilihan
-    int pilihan;
-    // Memilih tipe sortir oleh user
-    cout << endl << "1. BubbleSort" << endl << "2. BubbleSortImproved" << endl <<  "3. SelectionSort" << endl << "4. InsetionSort" << endl << endl;
-    cout << "Pilih tipe sortiran (1 - 4): ";
-    cin >> pilihan;
+    // Deklarasi variable untuk banyaknya nomor yg akan diinput oleh user
+    int buatNomor;
+    // Penginputan untuk memasukan berapa banyak angka yang akan dibuat secara acak
+    cout << "Masukan berapa banyak angka yang akan dibuat,\n(Generate): ";
+    cin >> buatNomor;
     cout << endl;
 
-    // Case untuk setiap pilihan dari user 
-    switch (pilihan){
-    case 1:
-        BubbleSort(array, arrayLenght);   
-        break;
-    case 2:
-        BubbleSortImproved(array, arrayLenght);   
-        break;
-    case 3:
-        SelectionSort(array, arrayLenght);   
-        break;
-    case 4:
-        InsetionSort(array, arrayLenght);   
-        break;
-    default:
-        cout << "Pilih tipe sortiran.";
-        break;
+    // Variable untuk menyimpan array
+    int array[buatNomor]; 
+    // Membuat array dari banyaknya angka yang diinput oleh user, lalu memasukan angka yang telah di generate secara random tersebut kedalam array
+    for(int i = 0; i < buatNomor; i++){
+        array[i] = (rand()%buatNomor) + 1; 
     }
+    
+    // Variabel untuk menyimpan pilihan tipe sortir
+    int pilihan = 5;
+    // Memilih tipe sortir oleh user dan menu menunya
+    // perulangan:
+    while (pilihan > 4){
+         cout << "Tipe Sortir =========\n\
+1. BubbleSort\n2. BubbleSortImproved\n3. SelectionSort\n4. InsetionSort\n\
+=====================" << endl << endl;
+        cout << "Pilih tipe sortiran (1 - 4): ";
+        cin >> pilihan; 
+        cout << endl;
+
+        // Case untuk setiap pilihan dari user 
+        switch (pilihan){
+        case 1:
+            BubbleSort(array, buatNomor);   
+            break;
+        case 2:
+            BubbleSortImproved(array, buatNomor);   
+            break;
+        case 3:
+            SelectionSort(array, buatNomor);   
+            break;
+        case 4:
+            InsetionSort(array, buatNomor);   
+            break;
+        default:
+            cout << "!!! PILIH TIPE SORTIR !!!" << endl;
+            // goto perulangan;
+            break;
+        }
+    }
+    
+        
 
     return 0;
 
