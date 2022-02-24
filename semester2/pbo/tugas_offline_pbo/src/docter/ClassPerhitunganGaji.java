@@ -1,18 +1,30 @@
-package docter;
+package tugas_offline_bpo_2;
 
-public class ClassPerhitunganGaji {
+public class MethodClass {
     
     // Buat variable untuk fungsi perhitungan
-    String docId = "", docNama = "", docGaji = "";
+    static String docId = "", docNama = "", docGaji = "";
+    static int docTunjanganJumlah, docTotalGajiJumlah;
     
-    // Fungsi untuk perhitungan tunjangan
-    public int docTunjangan() {
+    // Buat fungsi untuk menghitung uang makan
+    int uangMakan() {
+        
         return (int) (Integer.parseInt(docGaji) * 0.1);
+        
     }
     
-    // fungsi total gaji
-    public int docTotalGaji() {
-        return (int) (Integer.parseInt(docGaji) + docTunjangan());
+    // Buat fungsi untuk menghitung transport
+    int transport() {
+        
+        return (int) (Integer.parseInt(docGaji) * 0.1);
+        
+    }
+    
+    // Buat fungsi untuk menghitung total gaji
+    int totalGaji() {
+        
+        return (int) (Integer.parseInt(docGaji) + uangMakan() + transport());
+        
     }
     
 }
