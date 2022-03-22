@@ -1,0 +1,36 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+struct sel {
+  int dat;
+  struct sel *next;
+};
+struct sel *head=NULL, *ptr=NULL;
+
+void printList(sel* n)
+{
+    while (n != NULL) {
+        cout << n->dat << " ";
+        n = n->next;
+    }
+}
+
+main() {
+	cout << "Hello World";
+	
+	//Single Linked-list biasa
+	head = (struct sel *) malloc(sizeof(struct sel));
+	head->dat = 10;
+	ptr = head;
+	ptr->next = (struct sel *) malloc(sizeof(struct sel));
+	ptr->dat = 16;
+	ptr=ptr->next;
+	ptr->next = (struct sel *) malloc(sizeof(struct sel));
+	ptr->dat = 45;
+	ptr->next = NULL;
+	
+	printList(head);
+}
