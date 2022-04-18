@@ -34,7 +34,8 @@ void PrintStack2() {
 }
 
 int main() {
-
+	
+	// memanggil algoritma yang diminta
       Algoritma(12);
       Algoritma(76);
       Algoritma(45);
